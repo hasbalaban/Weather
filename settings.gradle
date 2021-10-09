@@ -1,6 +1,2 @@
-<<<<<<< HEAD
 include ':app'
-=======
-include ':app'
->>>>>>> dff604a67a9bac077787e275bff695bb5c9f2950
 rootProject.name = "Weather_Of_Planet"
