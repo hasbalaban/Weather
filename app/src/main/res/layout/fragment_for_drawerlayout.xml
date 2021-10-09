@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.example.weather_of_planet.view.interfaces.Clickslistener" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/fragment"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:background="?attr/backgroundActivities"
+        android:orientation="vertical"
+        android:focusable="true">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favoritesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="200"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:background="#A39C9C" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:itemIconTint="?attr/generalTextColor"
+            app:itemTextColor="?attr/generalTextColor"
+            android:background="?attr/backgroundActivities2"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="50"
+            app:menu="@menu/menus" />
+
+
+    </LinearLayout>
+</layout>

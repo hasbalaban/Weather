@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Weather_Of_Planet</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open">drawerlayout açıldı</string>
+    <string name="close">drawerlayout kapatıldı</string>
+    <string name="sırnak"> Location</string>
+    <string name="alerts">bu akşam saatleri itibariyle gök gürültülü ve şiddetli yağmur bekleniyor."</string>
+</resources>

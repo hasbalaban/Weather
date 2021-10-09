@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+<data>
+
+    <variable
+        name="city"
+        type="com.example.weather_of_planet.view.models.models_for_database.Favorite" />
+</data>
+
+    <RelativeLayout
+        android:id="@+id/cityName"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:background="@drawable/style_for_item_search"
+        android:orientation="vertical">
+        <TextView
+            android:paddingTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="30dp"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:text="@{city.favoriteCityName}"/>
+
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/search_and_save_city"
+        android:name="com.example.weather_of_planet.view.views.search_and_save_city"
+        android:label="search_and_save_city" >
+
+
+        <action
+            android:id="@+id/action_search_and_save_city_to_mainActivity"
+            app:destination="@id/mainActivity" />
+
+    </activity>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.weather_of_planet.view.views.MainActivity"
+        android:label="MainActivity" >
+        <action
+            android:id="@+id/action_mainActivity_to_search_and_save_city"
+            app:destination="@id/search_and_save_city" />
+    </activity>
+    <fragment
+        android:id="@+id/fragment_for_drawerlayout"
+        android:name="com.example.weather_of_planet.view.views.fragment_for_drawerlayout"
+        android:label="fragment_for_drawerlayout" >
+        <action
+            android:id="@+id/action_fragment_for_drawerlayout_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_fragment_for_drawerlayout_to_search_and_save_city"
+            app:destination="@id/search_and_save_city" />
+    </fragment>
+</navigation>

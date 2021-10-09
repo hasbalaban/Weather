@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cityName"
+            type="com.example.weather_of_planet.view.models.model_of_weather_of_7days.Location" />
+
+        <variable
+            name="today"
+            type="com.example.weather_of_planet.view.models.model_of_weather_of_7days.Forecastday" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/Base_DrawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/reflesh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_of_homepage">
+
+                <ImageView
+                    android:id="@+id/new_toogle"
+                    android:layout_width="35dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/toogle_new" />
+
+                <RelativeLayout
+                    android:id="@+id/hideAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:id="@+id/name_of_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:drawableLeft="@drawable/location_icon"
+                        android:text="@{cityName.name}"
+                        android:textColor="?attr/generalTextColor"
+                        android:textSize="30sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/RecyclersLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/name_of_location">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_for_hour"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="5dp"
+                            android:foregroundGravity="center" />
+
+
+                        <View
+                            android:id="@+id/view1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/recyclerView_for_hour"
+                            android:layout_marginStart="7dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="7dp"
+                            android:background="#A39C9C" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_for_day"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/view1"
+                            android:layout_marginTop="5dp"
+                            android:foregroundGravity="center" />
+
+
+                        <View
+                            android:id="@+id/view2"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/recyclerView_for_day"
+                            android:layout_marginStart="7dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="7dp"
+                            android:background="#A39C9C"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/alerts"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/view2"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginEnd="5dp"
+                            android:paddingStart="20dp"
+                            android:paddingTop="7dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="7dp"
+                            android:text="@{today.day.condition.text}"
+                            android:textAlignment="center"
+                            android:textColor="?attr/generalTextColor"
+                            android:textSize="20dp"
+                            android:visibility="invisible" />
+
+
+                        <View
+                            android:id="@+id/view3"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@id/alerts"
+                            android:layout_marginStart="7dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="7dp"
+                            android:background="#A39C9C"
+                            android:visibility="invisible" />
+
+                        <RelativeLayout
+                            android:id="@+id/layout_of_sun"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/alerts"
+                            android:layout_marginTop="10dp"
+                            android:visibility="invisible">
+
+                            <TextView
+                                android:id="@+id/sunRiseText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginTop="8dp"
+                                android:paddingStart="25dp"
+                                android:paddingTop="5dp"
+                                android:text="SUNRİSE"
+                                android:textColor="?attr/generalTextColor"
+                                android:textSize="17sp" />
+
+                            <TextView
+                                android:id="@+id/sunRise"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/sunRiseText"
+                                android:layout_marginTop="8dp"
+                                android:paddingStart="25dp"
+                                android:text="@{today.astro.sunrise}"
+                                android:textColor="?attr/generalTextColor"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/sunSetText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="10dp"
+                                android:layout_toEndOf="@id/sunSetText"
+                                android:paddingTop="5dp"
+                                android:paddingEnd="80dp"
+                                android:text="SUNRİSE"
+
+                                android:textColor="?attr/generalTextColor"
+                                android:textSize="17sp" />
+
+                            <TextView
+                                android:id="@+id/sunSet"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/sunSetText"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="5dp"
+                                android:paddingEnd="70dp"
+                                android:text="@{today.astro.sunset}"
+                                android:textColor="?attr/generalTextColor"
+                                android:textSize="20sp" />
+                            <LinearLayout
+                                android:layout_below="@id/sunSet"
+                                android:layout_width="match_parent"
+                                android:layout_height="400dp">
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+
+
+
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+    </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+
+        <fragment
+            android:id="@+id/fragment_Favorite"
+            android:layout_width="match_parent"
+            android:name="com.example.weather_of_planet.view.views.fragment_for_drawerlayout"
+            android:layout_height="match_parent"
+
+            android:layout_gravity="start"/>
+
+
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

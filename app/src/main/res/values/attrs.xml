@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="nightMode">
+        <attr name="generalTextColor" format="color"/>
+        <attr name="itemDays" format="color"/>
+        <attr name="itemFavorites" format="color"/>
+        <attr name="backgroundActivities" format="color"/>
+        <attr name="backgroundActivities2" format="color"/>
+        <attr name="backgroundActivities3" format="color"/>
+
+    </declare-styleable>
+</resources>
