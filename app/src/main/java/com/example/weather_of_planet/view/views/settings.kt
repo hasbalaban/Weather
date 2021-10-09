@@ -33,6 +33,7 @@ class settings : AppCompatActivity() {
 
     }
 
+    //listen click on toogleButton
     fun modeManager() {
         dataBindinSettings.Mode.setOnClickListener {
 
@@ -44,6 +45,7 @@ class settings : AppCompatActivity() {
     }
 
 
+    //save current mode and restart  activity
     fun saveModeState(mode: Boolean) {
         if (mode) {
             dataBindinSettings.Mode.isChecked = true
@@ -63,6 +65,7 @@ class settings : AppCompatActivity() {
 
     }
 
+    //navigate to my twitter account
     fun clickMyAccout(){
         dataBindinSettings.MyAccount.setOnClickListener {
             val url ="https://www.twitter.com/hesenblbn101".toLowerCase()

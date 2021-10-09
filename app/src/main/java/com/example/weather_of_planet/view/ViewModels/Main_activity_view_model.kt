@@ -39,8 +39,8 @@ class Main_activity_view_model(context: Context) : ViewModel() {
     // mutable live data days
     val dataOfDays = MutableLiveData<List<DayWeather>>()
 
-
-    fun get_weather_forecast(city:String) {
+    // get forecast city from Api and add mutableLiveData
+    fun get_weather_forecast(city: String) {
 
         compositeDisposable.add(
             weather_service().getDataQueryOneCity(city)
@@ -75,6 +75,7 @@ class Main_activity_view_model(context: Context) : ViewModel() {
         }
     }
 
+    //get from database
     fun getHoursFromDatabase() {
         CoroutineScope(Dispatchers.Main).launch {
             dataOfHours.value = dao.getAllHoursFromDatabase()
@@ -83,7 +84,7 @@ class Main_activity_view_model(context: Context) : ViewModel() {
     }
 
 
-          //---------------- days----------------
+    //---------------- days----------------
     fun SaveDaysDatas(days: List<DayWeather>) {
         CoroutineScope(Dispatchers.Default).launch {
             // before delete all hours
@@ -92,7 +93,7 @@ class Main_activity_view_model(context: Context) : ViewModel() {
             dao.AddDaysToDatabase(*days.toTypedArray())
         }
     }
-
+    //get from database
     fun getDaysFromDatabase() {
         CoroutineScope(Dispatchers.Main).launch {
             dataOfDays.value = dao.getAllDaysFromDatabase()

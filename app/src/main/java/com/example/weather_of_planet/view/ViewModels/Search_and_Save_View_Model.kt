@@ -2,7 +2,6 @@ package com.example.weather_of_planet.view.ViewModels
 
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weather_of_planet.view.database.DatabaseService
@@ -18,7 +17,8 @@ class Search_and_Save_View_Model() : ViewModel() {
     val MutableCities = MutableLiveData<List<Favorite>>()
     val MutableYukleme = MutableLiveData<Boolean>()
 
-
+    // get city Names from cityNames.txt
+    // split this text files , create real city name and add MutableCities (MutableLiveData)
     fun getCitiesFromText(context: Context) {
 
         MutableYukleme.value = false
@@ -27,7 +27,7 @@ class Search_and_Save_View_Model() : ViewModel() {
         val cities = arrayListOf<Favorite>()
 
 
-        val inputStream: InputStream = context.assets.open("ffffff.txt")
+        val inputStream: InputStream = context.assets.open("cityNames.txt")
         CoroutineScope(Dispatchers.IO).launch {
 
             try {
@@ -62,6 +62,9 @@ class Search_and_Save_View_Model() : ViewModel() {
     }
 
 
+
+
+    // return cities that equals query (text: String)
     fun SetDataToRecyclerView(text: String): List<Favorite> {
 
         val list = arrayListOf<Favorite>()
@@ -89,6 +92,7 @@ class Search_and_Save_View_Model() : ViewModel() {
     }
 
 
+    // city add database that you clicked
     fun Add_One_Favorite(favorite: Favorite,context: Context) {
 
         CoroutineScope(Dispatchers.Default).launch {

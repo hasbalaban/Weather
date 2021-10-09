@@ -24,13 +24,17 @@ class search_and_save_city : AppCompatActivity(), TextWatcher, Clickslistener {
     private lateinit var Search_and_Save_View_Model: Search_and_Save_View_Model
     private lateinit var dataBindingSearchAndSave: ActivitySearchAndSaveCityBinding
     private lateinit var ListCities: List<Favorite>
+    // when you write city  name - create new recyclerview - before you set to recyclerview
+    // if you write another name cancel last job
     var CompletableJob = Job()
     private var job: Job? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //set theme
         setTheme(ModeControl().setThema(this))
         super.onCreate(savedInstanceState)
+
 
         val layout = R.layout.activity_search_and_save_city
         dataBindingSearchAndSave = DataBindingUtil.setContentView(this, layout)
@@ -39,7 +43,7 @@ class search_and_save_city : AppCompatActivity(), TextWatcher, Clickslistener {
         setup()
 
     }
-
+    // initialize
     fun settings() {
         dataBindingSearchAndSave.cityName.addTextChangedListener(this)
 
@@ -47,6 +51,7 @@ class search_and_save_city : AppCompatActivity(), TextWatcher, Clickslistener {
         Search_and_Save_View_Model.getCitiesFromText(this)
     }
 
+    //observe favorites
     fun setup() {
         Search_and_Save_View_Model.MutableCities.observe(this, Observer {
             ListCities = it
@@ -62,7 +67,7 @@ class search_and_save_city : AppCompatActivity(), TextWatcher, Clickslistener {
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
     }
-
+    // observe edittext - and cancel last job here
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
         if (dataBindingSearchAndSave.cityName.text.toString() != "") {
             dataBindingSearchAndSave.clear.visibility = View.VISIBLE
@@ -80,6 +85,7 @@ class search_and_save_city : AppCompatActivity(), TextWatcher, Clickslistener {
     }
 
 
+    // add new job and create new recyclerview adapter
     override fun afterTextChanged(s: Editable?) {
         var text = dataBindingSearchAndSave.cityName.text.toString()
         text = text.capitalize()
@@ -105,6 +111,7 @@ class search_and_save_city : AppCompatActivity(), TextWatcher, Clickslistener {
 
     }
 
+    // add city to recyclerview that equals to you search it
     fun setAdapterToCityRecyclerView(list: List<Favorite>) {
         val adapter = adapter_for_city_search(list, this)
         dataBindingSearchAndSave.recyclerViewForCity.layoutManager = LinearLayoutManager(this)
@@ -112,6 +119,7 @@ class search_and_save_city : AppCompatActivity(), TextWatcher, Clickslistener {
 
     }
 
+    //listen click here
     override fun clickListener(view: View) {
 
         when (view.id) {

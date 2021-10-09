@@ -17,6 +17,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+// adater for favorite city that we saved
 class adapter_for_item_of_favorite(var list_of_favorites: List<Favorite>, val context: Context) :
     RecyclerView.Adapter<adapter_for_item_of_favorite.ViewHolder>() {
 
@@ -39,12 +40,13 @@ class adapter_for_item_of_favorite(var list_of_favorites: List<Favorite>, val co
         return ViewHolder(view)
     }
 
+    //bind here - and do click operation here
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.view.favorite = list_of_favorites[position]
-        clicksOperation(holder, list_of_favorites[position] , position)
+        clicksOperation(holder, list_of_favorites[position], position)
 
-      //  holder.view.weatherStateIcon.NoImage()
+        //  holder.view.weatherStateIcon.NoImage()
 
     }
 
@@ -53,7 +55,8 @@ class adapter_for_item_of_favorite(var list_of_favorites: List<Favorite>, val co
     }
 
 
-    fun clicksOperation(holder: ViewHolder, list_of_favorites: Favorite, position : Int) {
+    // click operation do here
+    fun clicksOperation(holder: ViewHolder, list_of_favorites: Favorite, position: Int) {
         holder.view.sil.setOnClickListener {
             CoroutineScope(Dispatchers.Default).launch {
                 val favoriteId = list_of_favorites.favoriteId
@@ -78,20 +81,29 @@ class adapter_for_item_of_favorite(var list_of_favorites: List<Favorite>, val co
 
     }
 
-    fun delete(position:Int) {
-        val sharedManager=sharedPreferencesCreater(context)
-       val defaultCity = sharedManager.getDataStringFromSharedprefence(
-           "defaultCity","Ankara")
-        if (defaultCity==list_of_favorites[position].FavoriteCityName){
+    // delete city from favorite city that we want dete
+    // and set new defaultCity for start
+    fun delete(position: Int) {
+        val sharedManager = sharedPreferencesCreater(context)
+        val defaultCity = sharedManager.getDataStringFromSharedprefence(
+            "defaultCity", "Ankara"
+        )
+        if (defaultCity == list_of_favorites[position].FavoriteCityName) {
 
 
-            val a = list_of_favorites.drop(position)
-            if (a.size!=0){
+            if (list_of_favorites.size > 1) {
+                if (list_of_favorites.size - 1 != position) {
 
-                sharedManager.AddDataStringToSharedprefence("defaultCity",a[0].FavoriteCityName)
-            }
-            else{
-                sharedManager.AddDataStringToSharedprefence("defaultCity","Ankara")
+                    sharedManager.AddDataStringToSharedprefence(
+                        "defaultCity",
+                        list_of_favorites[0].FavoriteCityName
+                    )
+
+                } else {
+                    sharedManager.AddDataStringToSharedprefence("defaultCity", "Ankara")
+                }
+            } else {
+                sharedManager.AddDataStringToSharedprefence("defaultCity", "Ankara")
             }
 
         }

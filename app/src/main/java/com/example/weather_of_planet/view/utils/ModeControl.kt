@@ -3,6 +3,7 @@ package com.example.weather_of_planet.view.utils
 import android.content.Context
 import com.example.weather_of_planet.R
 
+// control mode and return thema
 class ModeControl() {
     fun setThema(context: Context):Int {
         val sharedManager = sharedPreferencesCreater(context)

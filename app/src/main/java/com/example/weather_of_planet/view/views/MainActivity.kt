@@ -59,6 +59,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // when application restart cancel all last jobs
+    // and set reflesh data
     override fun onRestart() {
 
         if (jobs.size > 0)
@@ -85,6 +87,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    // reflesh recyclerView data from here
     fun swipeReflesh() {
         dataBindingMainActiviy.reflesh.setOnRefreshListener {
             if (jobs.size > 0)
@@ -97,10 +100,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // loading from database here- before api
     fun loadingFromDatabase(city: String) {
         val check = SharedManager.getDataBoolenFromSharedprefence("data", false)
         if (check) {
-
+            val defaultCity = SharedManager.getDataStringFromSharedprefence("defaultCity", "Ankara")
+            dataBindingMainActiviy.nameOfLocation.setText(defaultCity)
             getAllDataOfHoursFromDatabase(city)
         }
 
@@ -146,6 +151,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // if getdata is succeced use this datas
     fun ResultTrue() {
 //get current our use for 6 hour time - from that i created function
         val fromHour = getCurrentTime().Hour()
@@ -189,6 +195,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //convert data to use
     fun converModelToDayModel(dataAsDay: List<Forecastday>): List<DayWeather> {
 
         // we convert data that it come us to new model that we ability to use *
@@ -233,6 +240,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    //save data to database for loading when network ofline
     fun saveDatasToDatabase(subListOfHour: List<Temp_with_image>, listOfDay: List<DayWeather>) {
 
         Main_activity_view_model.SaveHoursDatas(subListOfHour)
@@ -240,7 +248,8 @@ class MainActivity : AppCompatActivity() {
         SharedManager.AddDataBoolenToSharedprefence("data", true)
     }
 
-
+    //get data of hours  from  database
+    // and set recyclerview of hours
     fun getAllDataOfHoursFromDatabase(city: String) {
         Main_activity_view_model.getHoursFromDatabase()
         Main_activity_view_model.getDaysFromDatabase()
@@ -262,6 +271,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //control visibility for stable
     fun visibilities() {
         dataBindingMainActiviy.view3.visibility = View.VISIBLE
         dataBindingMainActiviy.view2.visibility = View.VISIBLE

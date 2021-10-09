@@ -15,6 +15,7 @@ class Favorite_fragment_View_Model(context: Context) : ViewModel() {
     var List_Of_Favorites = MutableLiveData<List<Favorite>>()
     val dao = DatabaseService.invoke(context).Weather_Dao()
 
+    // get favorite city from database and add mutableLiveData
     fun getFavorites() {
 
         CoroutineScope(Dispatchers.Main).launch {

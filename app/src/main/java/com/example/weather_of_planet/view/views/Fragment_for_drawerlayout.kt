@@ -49,6 +49,7 @@ class fragment_for_drawerlayout : Fragment() {
         return dataBindingFragmentDrawerLayout.root
     }
 
+    // start function of initialize
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         setup()
@@ -64,7 +65,7 @@ class fragment_for_drawerlayout : Fragment() {
 
     }
 
-
+    // observe list of favorite - get from database
     fun ObserversBox() {
         Favorite_fragment_View_Model.List_Of_Favorites.observe(viewLifecycleOwner, Observer {
             List_Of_Favorites = it
@@ -74,6 +75,7 @@ class fragment_for_drawerlayout : Fragment() {
 
     }
 
+    // create recyclerview here- and set adapter
     fun intializeFavoriteRecyclerView(List_Of_Favorites: List<Favorite>) {
         adapter = adapter_for_item_of_favorite(List_Of_Favorites, requireContext())
         dataBindingFragmentDrawerLayout.favoritesRecycler.layoutManager =
@@ -84,6 +86,7 @@ class fragment_for_drawerlayout : Fragment() {
     }
 
 
+    // listen item of navigation here for menu
     fun newNavigationItemSelecter() {
         dataBindingFragmentDrawerLayout.navView.setNavigationItemSelectedListener {
 

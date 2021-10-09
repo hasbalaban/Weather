@@ -13,6 +13,7 @@ import com.example.weather_of_planet.view.models.models_for_database.Favorite
 import com.example.weather_of_planet.view.utils.Intents
 import com.example.weather_of_planet.view.utils.sharedPreferencesCreater
 
+// adater for city that we search for
 class adapter_for_city_search(val cities: List<Favorite>, val context: Context) :
     RecyclerView.Adapter<adapter_for_city_search.ViewHolder>() {
 
@@ -40,6 +41,7 @@ class adapter_for_city_search(val cities: List<Favorite>, val context: Context) 
         holder.view.city = cities[position]
         holder.view.cityName.setOnClickListener {
 
+            //save this city that we click
             saveFavorite(cities[position])
         }
 
@@ -49,6 +51,7 @@ class adapter_for_city_search(val cities: List<Favorite>, val context: Context) 
         return cities.size
     }
 
+    //save function
     fun saveFavorite(favorite: Favorite) {
         val viewModel = Search_and_Save_View_Model()
         viewModel.Add_One_Favorite(favorite, context)

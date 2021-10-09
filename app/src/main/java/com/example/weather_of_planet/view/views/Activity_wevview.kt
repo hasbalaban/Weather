@@ -25,8 +25,6 @@ class Activity_wevview : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.Main).launch {
             val url = intent.getStringExtra("url")
-            Log.i("urlll", url.toString())
-            Log.i("urlll222", url.toString())
 
             setup(url!!)
         }

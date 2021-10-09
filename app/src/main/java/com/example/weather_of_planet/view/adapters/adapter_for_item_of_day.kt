@@ -14,7 +14,7 @@ import com.example.weather_of_planet.view.utils.loadImage
 import com.example.weather_of_planet.view.utils.sharedPreferencesCreater
 import com.example.weather_of_planet.view.views.Activity_wevview
 
-
+// adater for day  to binding to edittext and imageview
 class adapter_for_item_of_day(val list_of_day: List<DayWeather>, val context: Context) :
     RecyclerView.Adapter<adapter_for_item_of_day.ViewHolder>() {
 
@@ -31,6 +31,7 @@ class adapter_for_item_of_day(val list_of_day: List<DayWeather>, val context: Co
         return ViewHolder(view)
     }
 
+    //set deatails to view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val image_URL = list_of_day[position].image

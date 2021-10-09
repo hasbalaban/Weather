@@ -8,6 +8,7 @@ import com.example.weather_of_planet.view.models.models_for_database.Favorite
 import com.example.weather_of_planet.view.models.models_for_database.Temp_with_image
 import com.example.weather_of_planet.view.models.models_for_database.DayWeather
 
+//create database and return to use
 @Database(entities = arrayOf(Favorite::class,Temp_with_image::class,DayWeather::class),
     exportSchema = false, version = 2)
 abstract class DatabaseService : RoomDatabase() {

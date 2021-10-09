@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.core.content.ContextCompat.startActivity
 
+// navigate intent
 class Intents() {
 
     fun runIntent(context: Context, classs: Class<*>) {

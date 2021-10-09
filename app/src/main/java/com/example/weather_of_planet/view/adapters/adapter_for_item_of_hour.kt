@@ -12,6 +12,7 @@ import com.example.weather_of_planet.view.models.createNewModelForHour
 import com.example.weather_of_planet.view.models.models_for_database.Temp_with_image
 import com.example.weather_of_planet.view.utils.loadImage
 
+// adater for item of hour that we saved
 class adapter_for_item_of_hour(val list_of_hour: List<Temp_with_image>, val context: Context) :
     RecyclerView.Adapter<adapter_for_item_of_hour.viewHolder>() {
 
@@ -33,6 +34,7 @@ class adapter_for_item_of_hour(val list_of_hour: List<Temp_with_image>, val cont
     }
 
 
+    // binding here and set image from glide
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
 
 

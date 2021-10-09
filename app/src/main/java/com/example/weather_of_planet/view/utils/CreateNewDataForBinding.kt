@@ -4,6 +4,7 @@ import com.example.weather_of_planet.view.enums.enum_for_days
 import com.example.weather_of_planet.view.models.model_of_weather_of_7days.Forecastday
 import com.example.weather_of_planet.view.models.models_for_database.DayWeather
 
+// this class create new model to use
 class CreateNewDataForBinding {
 
     fun createNewModelForBinding(

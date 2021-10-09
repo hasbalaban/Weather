@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
 
+// get current time and use time
 class getCurrentTime() {
 
     fun Hour(): Int {

@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 
+
+//Shared Manager initialize heere
 class sharedPreferencesCreater(
     val context: Context
 ) {

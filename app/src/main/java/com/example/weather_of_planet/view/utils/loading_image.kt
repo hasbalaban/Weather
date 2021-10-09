@@ -8,6 +8,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.weather_of_planet.R
 
 
+// extention function to use for ImageView
 fun ImageView.loadImage(
     URL: String,
     context: Context
@@ -29,6 +30,7 @@ fun ImageView.loadImage(
 
 }
 
+//just do
 fun ImageView.NoImage (){
 
     val progressDrawable = CircularProgressDrawable(context).apply {
